@@ -1,15 +1,15 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: dvwa2
+  name: dvwa
 spec:
   template:
     metadata:
       labels:
-        app: dvwa2
+        app: dvwa
     spec:
       containers:
-      - name: dvwa2
+      - name: dvwa
         image: public.ecr.aws/f9n2h3p5/dvwapub:<TAG>
         imagePullPolicy: "Always"
   selector:
@@ -19,11 +19,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: dvwa2
+  name: dvwa
 spec:
   type: LoadBalancer
   selector:
-    app: dvwa2
+    app: dvwa
   ports:
   - name: http
     port: 8081
